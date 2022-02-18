@@ -7,7 +7,7 @@ class TimeStampeModel(models.Model):
          auto_now=False,
 
     )
-    modified = models.DateTimeFil(
+    modified = models.DateTimeField(
           'Modificado em',
         auto_now_add=False,
         auto_now=True
