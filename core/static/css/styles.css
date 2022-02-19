@@ -1,0 +1,190 @@
+body{
+background-color : #A9A9A9;
+}
+#nav1{
+background-color : #1C1C1C;
+margin:0px 0px 0px -12px;
+ width:1370px;
+ height: 50px;
+position:fixed ;
+}
+#nav1 li a{
+color: #9d9d9d;
+padding:0px 0px 0px 90px;
+}
+#n span {
+color: #9d9d9d;
+}
+
+.texto ul li a{
+color: #9d9d9d;
+margin:15px 0px 0px 5px;
+
+}
+
+#logo {
+ height: 3rem;
+}
+#vanlateral {
+  background-color : #000000;
+  width:200px;
+  height: 800px;
+  margin:50px 0px 0px -12px;
+  position:fixed ;
+
+}
+
+#cad_list {
+width:1120px;
+margin: 70px 0px 0px 210px;
+position: absolute;
+
+}
+
+#t {
+width:300px;
+}
+
+#cad_fornecedor {
+width:1120px;
+margin:1500px 0px 0px 210px;
+position: absolute;
+}
+
+#fornecedor {
+width:1120px;
+margin: 70px 0px 0px 210px;
+position: absolute;
+}
+
+#card_fornecedor_edite {
+width:1120px;
+margin: 70px 0px 0px 210px;
+position: absolute;
+}
+
+#card_fornecedor_contato {
+width:1120px;
+margin: 250px 0px 0px 210px;
+position: absolute;
+
+}
+#card_endereco {
+width:1120px;
+margin: 460px 0px 0px 210px;
+position: absolute;
+}
+
+ {
+
+color: #00B0FE;
+ text-decoration: none
+
+ }
+
+#card_edite_contato {
+width:1120px;
+margin: 700px 0px 0px 210px;
+position: absolute;
+}
+
+#card_edite_endereco {
+width:1120px;
+margin: 3000px 0px 0px 210px;
+position: absolute;
+
+}
+
+
+
+#form {
+width:1120px;
+margin: 70px 0px 0px 210px;
+position: absolute;
+}
+
+#form_contato{
+width:1120px;
+margin: 450px 0px 0px 210px;
+position: absolute;
+
+}
+
+#form_endereco {
+width:1120px;
+margin: 650px 0px 0px 210px;
+position: absolute;
+
+}
+#delete_confirme{
+width:1120px;
+margin: 70px 0px 0px 210px;
+position: absolute;
+}
+
+#card_list_produto {
+width:1120px;
+margin: 70px 0px 0px 210px;
+position: absolute;
+}
+#card_produto_detalhes {
+width:1120px;
+margin: 70px 0px 0px 210px;
+position: absolute;
+}
+#card_form_produto {
+width:1120px;
+margin: 70px 0px 0px 210px;
+position: absolute;
+
+}
+
+#card_categoria {
+width:500px;
+margin: 70px 0px 0px 210px;
+position: absolute;
+}
+#form_categoria {
+margin: 70px 0px 0px 800px;
+position: absolute;
+}
+
+#card_busca_categoria {
+margin: 200px 0px 0px 800px;
+position: absolute;
+
+}
+
+#car_index {
+width:1120px;
+margin: 70px 0px 0px 210px;
+position: absolute;
+
+}
+
+/* Paginação */
+
+
+.pagination {
+margin-buttom:20px;
+
+}
+.step-links{
+   position:relative;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.setep-links .current {
+ margin-left: 5px;
+   margin-right: 5px;
+}
+
+
+#em_andamento {
+ height: 3rem;
+}
+
+.a_comecar {
+ height: 3rem;
+}
