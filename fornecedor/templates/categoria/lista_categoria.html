@@ -1,0 +1,82 @@
+{% extends "core/includes/base.html"%}
+{% load bootstrap %}
+{% block main %}
+<div class="card" id="card_categoria">
+  <h5 class="card-header">Categoria</h5>
+  <div class="card-body">
+ <table  class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Categoria</th>
+      <th scope="col">
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for categoria in categorias %}
+    <tr>
+      <th scope="row">{{categoria.nome_categoria}}</th>
+    </tr>
+
+     {%endfor%}
+  </tbody>
+</table>
+
+       <div class="pagination">
+        <span  class="step-links">
+         {%  if categorias.has_previous %}
+            <a href="?page={{categorias.previous_page_number}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+                </svg>
+            </a>
+         {% endif %}
+          <span>
+              {{ categorias.number}} de {{ categorias.paginator.num_pages}}
+          </span>
+         {%  if categorias.has_next %}
+            <a href="?page={{categorias.next_page_number}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
+                </svg>
+            </a>
+         {% endif %}
+        </span><br>
+
+
+    </div>
+
+
+  </div>
+
+</div>
+
+<div class="card" style="width: 18rem;"  id="form_categoria">
+  <div class="card-body">
+<p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    novo categoria
+  </a>
+
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <form action="{% url 'nova_categoria'%}" method="post">
+      {% csrf_token %}
+            {{form|bootstrap}}
+        <br>
+        <button type="submit" class="btn btn-outline-primary">Primary</button>
+    </form>
+
+  </div>
+</div>
+  </div>
+</div>
+
+<p>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+    Toggle width collapse
+  </button>
+</p>
+
+{% endblock %}
