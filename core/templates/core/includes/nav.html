@@ -54,7 +54,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{% url 'listar_fornecedor'%}">Listar</a></li>
-            <li><a class="dropdown-item" href="{'#}">Novo Fornecedor</a></li>
+            <li><a class="dropdown-item" href="{% url 'fornecedor_create'%}">Novo Fornecedor</a></li>
           </ul>
         </li>
   <li class="nav-item dropdown">
@@ -64,8 +64,8 @@
             </svg>  Produto
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{'#'}">Listar</a></li>
-            <li><a class="dropdown-item" href="{'#'}">Novo Produto</a></li>
+            <li><a class="dropdown-item" href="{% url 'listar_produto'%}">Listar</a></li>
+            <li><a class="dropdown-item" href="{% url 'produto_create'%}">Novo Produto</a></li>
 
           </ul>
         </li>
@@ -77,7 +77,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{% url 'home_categorias'%}">Listar</a></li>
-            <li><a class="dropdown-item" href="{'#'}">Nova Categoria</a></li>
+            <li><a class="dropdown-item" href="{% url 'home_categorias'%}">Nova Categoria</a></li>
           </ul>
         </li>
 
