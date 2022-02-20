@@ -1,0 +1,50 @@
+{% extends "core/includes/base.html"%}
+{% block main %}
+{{produto.nome}}
+<div class="card" id="card_produto_detalhes">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+ <div class="row">
+          <div class="col">
+              <span>Produto:</span><br>
+              {{produto.produto}}
+          </div>
+          <div class="col">
+              <span>Codigo:</span><br>
+            {{produto.id}}
+          </div>
+          <div class="col">
+              <span>Fornecedor:</span><br>
+              {{produto.fornecedor.nome}}
+          </div>
+      </div>
+      <br>
+
+       <div class="row">
+          <div class="col">
+              <span>Descriçao:</span><br>
+              {{produto.descricao}}
+          </div>
+             <div class="col">
+              <span>Descriçao:</span><br>
+              {{produto.preco}}
+          </div>
+          <div class="col">
+              <span>unidade de medida:</span><br>
+            {{produto.unidade_medida}}
+          </div>
+          <div class="col">
+              <span>Quntidade na embalagem:</span><br>
+              {{produto.quantidade_embalagem}}<br><br>
+                 <a href="{% url 'produto_edite' produto.id %}" class="btn btn-outline-primary" >editar</a>
+<a href="{% url 'listar_produto' %}" type="button" class="btn btn-outline-warning">Cancelar</a>
+   <a href="{% url 'produto_delete' produto.id %}" class="btn btn-outline-danger">deletar</a>
+          </div>
+
+
+  </div>
+</div>
+
+{% endblock %}

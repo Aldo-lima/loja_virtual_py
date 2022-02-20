@@ -1,0 +1,53 @@
+{% extends "core/includes/base.html"%}
+{% load bootstrap %}
+{% block main %}
+ <form method="post">
+      {% csrf_token %}
+
+     <div class="card" id="card_form_produto">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+       <div class="row">
+           <div class="col">
+               {{form.produto|bootstrap}}
+           </div>
+            <div class="col">
+               {{form.fornecedor|bootstrap}}
+           </div>
+            <div class="col">
+                {{form.descricao|bootstrap}}
+           </div>
+
+       </div><br>
+      <div class="row">
+           <div class="col">
+               {{form.unidade_medida|bootstrap}}
+           </div>
+            <div class="col">
+               {{form.quantidade_embalagem|bootstrap}}
+           </div>
+            <div class="col">
+                {{form.preco|bootstrap}}
+           </div>
+
+       </div>
+        <br>
+       <div class="row">
+          <div class="col-10">
+           <button type="submit" class="btn btn-outline-primary">Salvar</button>
+
+          </div>
+          <div class="col">
+<a href="{% url 'listar_produto' %}" type="button" class="btn btn-outline-warning">Cancelar</a>
+
+          </div>
+
+      </div>
+  </div>
+</div>
+
+  </form>
+
+{% endblock %}

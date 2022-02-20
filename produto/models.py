@@ -18,7 +18,7 @@ class Produto(models.Model):
     unidade_medida = models.CharField('Unidade de medida', max_length=11, choices=UNIDADE_DE_MEDIDA)
     quantidade_embalagem = models.IntegerField('Qantidade na embalagem')
     preco = models.DecimalField('preço', max_digits=7, decimal_places=2)
-    estoque = models.IntegerField('estoque Atual')
+    estoque = models.IntegerField('estoque Atual', null=True)
     estoque_minimo = models.IntegerField('estoque mínimo', default=0)
 
 
