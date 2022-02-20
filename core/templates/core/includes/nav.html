@@ -17,7 +17,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{'#'}">Fornecedor</a>
+          <a class="nav-link" href="{% url 'listar_fornecedor'%}">Fornecedor</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{'#'}">Produto</a>
@@ -53,7 +53,7 @@
           </svg>  Fornecedor
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{'#'}">Listar</a></li>
+            <li><a class="dropdown-item" href="{% url 'listar_fornecedor'%}">Listar</a></li>
             <li><a class="dropdown-item" href="{'#}">Novo Fornecedor</a></li>
           </ul>
         </li>
@@ -76,8 +76,8 @@
            </svg>  Categoria
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{'#'}">Listar</a></li>
-            <li><a class="dropdown-item" href="#">Nova Categoria</a></li>
+            <li><a class="dropdown-item" href="{% url 'home_categorias'%}">Listar</a></li>
+            <li><a class="dropdown-item" href="{'#'}">Nova Categoria</a></li>
           </ul>
         </li>
 

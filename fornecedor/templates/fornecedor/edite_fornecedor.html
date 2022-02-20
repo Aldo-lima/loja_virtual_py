@@ -1,0 +1,127 @@
+{% extends "core/includes/base.html"%}
+{% load bootstrap %}
+{% block main %}
+  <form method="post">
+      {% csrf_token %}
+      <div class="card" id="form">
+  <div class="card-header">
+    Novo Fornecedor
+  </div>
+  <div class="card-body">
+      {% csrf_token %}
+      <div class="row">
+          <div class="col-2">
+         {{form.Categoria|bootstrap}}
+         </div>
+      </div>
+      <br>
+
+      <div class="row">
+
+          <div class="col">
+             {{form.nome|bootstrap}}
+          </div>
+          <div class="col">
+             {{form.nome_r|bootstrap}}
+          </div>
+      </div>
+
+
+       <br> <br>
+   <div class="row">
+         <div class="col-4">
+         {{form.CNPJ|bootstrap}}
+         </div>
+          <div class="col">
+             {{form.escricao_estadual|bootstrap}}
+          </div>
+          <div class="col">
+
+          </div>
+      </div>
+
+
+  </div>
+</div>
+<div class="card" id="form_contato">
+  <h5 class="card-header">Contato</h5>
+  <div class="card-body">
+      <div class="row">
+         <div class="col-4">
+         {{form.nome_contato|bootstrap}}
+         </div>
+          <div class="col">
+             {{form.telefone|bootstrap}}
+          </div>
+          <div class="col">
+             {{form.Email|bootstrap}}
+          </div>
+      </div>
+        <div class="row">
+         <div class="col-4">
+         {{form.cargo|bootstrap}}
+         </div>
+          <div class="col">
+             {{form.tipo_telefone|bootstrap}}
+          </div>
+          <div class="col">
+             {{form.tipo_email|bootstrap}}
+          </div>
+      </div>
+
+  </div>
+</div>
+-------------------------------------------
+<div class="card"  id="form_endereco">
+  <h5 class="card-header">Endereço</h5>
+  <div class="card-body">
+    <div class="row">
+         <div class="col-2">
+         {{form.cep|bootstrap}}
+         </div>
+          <div class="col">
+             {{form.rua|bootstrap}}
+          </div>
+          <div class="col-2">
+             {{form.numero|bootstrap}}
+          </div>
+          <div class="col">
+             {{form.bairro|bootstrap}}
+          </div>
+      </div>
+        <br>
+        <div class="row">
+         <div class="col">
+         {{form.cidade|bootstrap}}
+         </div>
+          <div class="col">
+             {{form.proximidade|bootstrap}}
+          </div>
+          <div class="col">
+             {{form.complemento|bootstrap}}
+
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-10">
+           <button type="submit" class="btn btn-outline-primary">Salvar</button>
+
+          </div>
+          <div class="col">
+
+<a href="{% url 'listar_fornecedor' %}" type="button" class="btn btn-outline-warning">Cancelar</a>
+          </div>
+
+      </div>
+
+
+      </div>
+
+
+  </div>
+</div>
+
+  </form>
+
+{% endblock %}

@@ -1,0 +1,133 @@
+{% extends "core/includes/base.html"%}
+{% load static %}
+{% load bootstrap %}
+
+  {% block main %}
+
+<div class="card" id="fornecedor">
+  <div class="card-header">
+    Detalhes do fornecedor
+  </div>
+  <div class="card-body" >
+    <div class="row">
+          <div class="col-4">
+              <span>Nome Fantasia:</span><br>
+              {{fornecedor.nome}}
+          </div>
+          <div class="col-4">
+             <span>Categoria:</span> <br>
+             {{fornecedor.Categoria.nome_categoria}}
+         </div>
+         <div class="col-4">
+            <span>Razão social:</span> <br>{{fornecedor.nome_r}}
+         </div>
+    </div><br>
+    <div class="row">
+        <div class="col-4">
+         <span>Razão social:</span><br>
+         {{fornecedor.CNPJ}}
+        </div>
+        <div class="col">
+        <span>Razão social:</span><br>
+         {{fornecedor.escricao_estadual}}
+        </div>
+    </div><br>
+
+  </div>
+</div>
+
+<div class="card" id="card_fornecedor_contato">
+  <div class="card-header">
+    Contato
+  </div>
+  <div class="card-body">
+      <div class="row">
+          <div class="col">
+          <span>Nome</span><br>
+           {{fornecedor.nome_contato}}
+          </div>
+          <div class="col">
+           <span>Telefone</span><br>
+              {{fornecedor.telefone}}
+          </div>
+           <div class="col">
+              <span>E-mail:</span><br>
+               {{fornecedor.Email}}
+          </div>
+      </div>
+      <br>
+     <div class="row">
+          <div class="col">
+          <span>Cargo</span><br>
+           {{fornecedor.cargo}}
+          </div>
+          <div class="col">
+           <span>tipo:</span><br>
+              {{fornecedor.tipo_telefone}}
+          </div>
+           <div class="col">
+              <span>Tipo</span><br>
+               {{fornecedor.tipo_email}}
+          </div>
+      </div>
+
+  </div>
+</div>
+
+<div class="card" id="card_endereco">
+  <div class="card-header">
+    Endereço
+  </div>
+  <div class="card-body">
+      <div class="row">
+          <div class="col">
+              <span>Rua:</span><br>
+              {{fornecedor.rua}}
+          </div>
+          <div class="col">
+              <span>Número:</span><br>
+            {{fornecedor.numero}}
+          </div>
+          <div class="col">
+              <span>Complemento:</span><br>
+              {{fornecedor.complemento}}
+          </div>
+      </div>
+      <br>
+
+       <div class="row">
+          <div class="col">
+              <span>Bairro:</span><br>
+              {{fornecedor.bairro}}
+          </div>
+          <div class="col">
+              <span>Cidade:</span><br>
+            {{fornecedor.cidade}}
+          </div>
+          <div class="col">
+              <span>Estado:</span><br>
+              {{fornecedor.estado}}
+          </div>
+      </div>
+       <br>
+       <div class="row">
+          <div class="col">
+              <span>CEP:</span><br>
+              {{fornecedor.cep}}
+          </div>
+          <div class="col">
+              <span>Proximidade:</span><br>
+            {{fornecedor.proximidade}}
+          </div>
+
+      </div><br>
+        <a href="{% url 'fornecedor_editar' fornecedor.id %}" class="btn btn-primary">editar</a>
+      <a href="{% url 'listar_fornecedor' %}" type="button" class="btn btn-outline-warning">Cancelar</a>
+     <a href="{% url 'fornecedor_delete' fornecedor.id %}" class="btn btn-danger">apagar</a>
+  </div>
+
+</div>
+<br>
+
+
+{% endblock %}
