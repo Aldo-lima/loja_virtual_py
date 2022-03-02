@@ -1,0 +1,66 @@
+{% extends "core/includes/base.html"%}
+{% load bootstrap %}
+{% block main %}
+ <form method="post">
+      {% csrf_token %}
+     <div class="card" id="card_form_produto">
+        <div class="card-header">
+         Featured
+        </div>
+        <div class="card-body">
+         <form>
+          <div class="row">
+           <div class="col">
+              <form mothod="POST" novalidate>
+                  {% csrf_token %}
+                   <div  class="row">
+                      <div class="col">
+                       {{form.funcionario|bootstrap}}
+                      </div>
+                      <div class="col">
+                        {{form.nf|bootstrap}}
+                       </div>
+                    <div class="col">
+                      {{form.movimento|bootstrap}}
+                   </div>
+                    </div><br>
+                  {{ formset.management_form }}
+                       <legend>Produto</legend>
+                       {% for item_estoque_form in formset %}
+                       <div id="inlineform" class="row">
+                           <div class="col-4">
+                             {{item_estoque_form.produto|bootstrap}}
+                           </div>
+                           <div class="col-4">
+                           {{item_estoque_form.quantidade|bootstrap}}
+                           </div>
+                           <div class="col-4">
+                          {{item_estoque_form.saldo|bootstrap}}
+                          </div>
+                      </div>
+                  {%endfor%}
+                  <div class="row">
+           <div class="col-10">
+            <button type="submit" class="btn btn-outline-primary">Salvar</button>
+           </div>
+           <div class="col">
+             <a href="{% url 'listar_produto'%}" type="button" class="btn btn-outline-warning">Cacelar</a>
+          </div>
+      </div>
+               </form>
+          </div>
+      </div>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+    $(function() {
+        $('#inlineform').formset({
+        prefix: '{{ formset.prefix }}',
+        addText: 'Adicionar Item',
+        deleteText: 'Excluir Item',
+        });
+    })
+</script>
+{% endblock scripts %}
+
+

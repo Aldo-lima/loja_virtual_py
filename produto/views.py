@@ -72,3 +72,5 @@ def produtoDetete(request, id):
         return redirect('listar_produto')
     else:
         return render(request, 'produto/delete_confirme.html', {'produto': produto})
+
+
