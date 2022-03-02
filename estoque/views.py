@@ -1,5 +1,6 @@
 from django.shortcuts import render, resolve_url, redirect
 from .models import  Estoque, EstoqueItens
+from produto.models import Produto
 from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from .forms import EstoqueForm, EstoqueItensForm
@@ -20,6 +21,15 @@ def estoque_entrado_detalhes(request, pk):
     objects = Estoque.objects.get(pk=pk)
     context = {'objects': objects}
     return render(request, template_name, context)
+
+def dar_baixa_estoque(form):
+
+    produtos = form.estoques.all()
+    for item in produtos:
+        produto = Produto.objects.get(pk=item.produto.pk)
+        produto.estoque +=  item.quantidade
+        produto.save()
+    print ('Estoque atualizado com sucesso.')
 
 
 def estoque_saida_list(request):
@@ -47,10 +57,10 @@ def estoque_entrada_add(request):
         if form.is_valid() and formset.is_valid():
            form = form.save()
            formset.save()
-
+           dar_baixa_estoque(form)
            return redirect('home_estoque')
     else:
         form = EstoqueForm(instance=estoque_form, prefix='main')
         formset = item_estoque_formset(instance=estoque_form, prefix='estoque')
-        context ={'form': form, 'formset':formset}
-    return render(request, template_name, context )
+        context ={'form': form, 'formset': formset}
+    return render(request, template_name, context)

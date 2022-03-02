@@ -34,7 +34,8 @@ class EstoqueItens(models.Model):
     estoque = models.ForeignKey(Estoque, on_delete=models.CASCADE, related_name='estoques')
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
     quantidade = models.PositiveIntegerField()
-    saldo = models.PositiveIntegerField()
+    saldo = models.PositiveIntegerField('Saldo', null=True, blank=True)
+    valor_da_entrada = models.DecimalField('Valor_da_entrada', max_digits=7, decimal_places=2)
 
 
     class Meta:

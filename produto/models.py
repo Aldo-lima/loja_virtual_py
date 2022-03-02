@@ -26,4 +26,6 @@ class Produto(models.Model):
         ordering = ('produto',)
 
     def __str__(self):
-        return self.produto
+        return '{} - {} '.format(self.produto, self.preco)
+
+
