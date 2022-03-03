@@ -22,12 +22,21 @@ def estoque_entrado_detalhes(request, pk):
     context = {'objects': objects}
     return render(request, template_name, context)
 
-def dar_baixa_estoque(form):
+def dar_entrada_estoque(form):
 
     produtos = form.estoques.all()
     for item in produtos:
         produto = Produto.objects.get(pk=item.produto.pk)
         produto.estoque +=  item.quantidade
+        produto.save()
+    print ('Estoque atualizado com sucesso.')
+
+def dar_baixa_estoque(form):
+
+    produtos = form.estoques.all()
+    for item in produtos:
+        produto = Produto.objects.get(pk=item.produto.pk)
+        produto.estoque -= item.quantidade
         produto.save()
     print ('Estoque atualizado com sucesso.')
 
@@ -57,8 +66,12 @@ def estoque_entrada_add(request):
         if form.is_valid() and formset.is_valid():
            form = form.save()
            formset.save()
-           dar_baixa_estoque(form)
-           return redirect('home_estoque')
+           if form.movimento == 's':
+                dar_baixa_estoque(form)
+                return redirect('home_estoque')
+           else:
+               dar_entrada_estoque(form)
+               return redirect('home_estoque')
     else:
         form = EstoqueForm(instance=estoque_form, prefix='main')
         formset = item_estoque_formset(instance=estoque_form, prefix='estoque')
