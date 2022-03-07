@@ -6,14 +6,17 @@ from django.http import HttpResponseRedirect
 from .forms import EstoqueForm, EstoqueItensForm
 
 
-
-
 def estoque_entrado_list(request):
     template_name = 'estoque/estoque_entrada_list.html'
     objects = Estoque.objects.filter(movimento='e')
     context = {'object_list': objects}
     return render(request, template_name, context)
 
+def estoque_Saida_list(request):
+    template_name = 'estoque/estoque_saida_list.html'
+    objects = Estoque.objects.filter(movimento='s')
+    context = {'object_list': objects}
+    return render(request, template_name, context)
 
 
 def estoque_entrado_detalhes(request, pk):
@@ -23,23 +26,19 @@ def estoque_entrado_detalhes(request, pk):
     return render(request, template_name, context)
 
 def dar_entrada_estoque(form):
-
     produtos = form.estoques.all()
     for item in produtos:
         produto = Produto.objects.get(pk=item.produto.pk)
-        quantidade = int(item.quantidade)
-        estoque = int(produto.estoque)
-        produto.estoque = estoque + quantidade
+        produto.estoque = produto.estoque + int(item.quantidade)
         produto.save()
     print ('Estoque atualizado com sucesso.')
 
 def dar_baixa_estoque(form):
-
     produtos = form.estoques.all()
     for item in produtos:
         produto = Produto.objects.get(pk=item.produto.pk)
         quantidade = int(item.quantidade)
-        produto.estoque = int(produto.estoque) - quantidade
+        produto.estoque -= quantidade
         produto.save()
     print ('Estoque atualizado com sucesso.')
 

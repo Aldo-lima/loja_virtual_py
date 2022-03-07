@@ -1,0 +1,9 @@
+        if form.is_valid() and formset.is_valid():
+           form = form.save()
+           formset.save()
+           if form.movimento == 's':
+                dar_baixa_estoque(form)
+                return redirect('home_estoque')
+           else:
+               dar_entrada_estoque(form)
+               return redirect('home_estoque')
