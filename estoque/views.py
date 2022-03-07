@@ -36,7 +36,8 @@ def dar_baixa_estoque(form):
     produtos = form.estoques.all()
     for item in produtos:
         produto = Produto.objects.get(pk=item.produto.pk)
-        produto.estoque = produto.estoque + item.quantidade
+        quantidade = int(item.quantidade)
+        produto.estoque = produto.estoque + quantidade
         produto.save()
     print ('Estoque atualizado com sucesso.')
 
