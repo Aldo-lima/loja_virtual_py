@@ -28,7 +28,8 @@ def dar_entrada_estoque(form):
     for item in produtos:
         produto = Produto.objects.get(pk=item.produto.pk)
         quantidade = int(item.quantidade)
-        produto.estoque = int(produto.estoque) + quantidade
+        estoque = int(produto.estoque)
+        produto.estoque = estoque + quantidade
         produto.save()
     print ('Estoque atualizado com sucesso.')
 
