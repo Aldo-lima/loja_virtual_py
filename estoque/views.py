@@ -69,14 +69,14 @@ def estoque_entrada_add(request):
         formset = item_estoque_formset(request.POST,instance=estoque_form, prefix='estoque'
         )
         if form.is_valid() and formset.is_valid():
-           form = form.save()
+           form.save()
            formset.save()
-           if form.movimento == 's':
-                dar_baixa_estoque(form)
-                return redirect('home_estoque')
-           else:
-               dar_entrada_estoque(form)
-               return redirect('home_estoque')
+           #  if form.movimento == 's':
+            #    dar_baixa_estoque(form)
+          #      return redirect('home_estoque')
+          # else:
+           #    dar_entrada_estoque(form)
+        return redirect('home_estoque')
     else:
         form = EstoqueForm(instance=estoque_form, prefix='main')
         formset = item_estoque_formset(instance=estoque_form, prefix='estoque')
